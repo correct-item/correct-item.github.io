@@ -154,9 +154,18 @@ ws.onmessage = (event) => {
         activeRoom = data.id;
         if("scores" in data) load_score(data.scores);
         open_page("play");
+    } else if(data.type == "tell join_room") {
+        message(`انضم اللاعب ${data.msg} إلى الغرفة`, "w");
     } else if(data.type == "error join_room") {
         if(data.msg == "Room is full") message(`الغرفة ${data.id} مكتملة`, "w");
         else if(data.msg == "Room not found") message(`الغرفة ${data.id} غير موجودة`, "w");
+    }
+
+    else if(data.type == "response leave_room") {
+        open_page("home");
+        message("تم الخروج من الغرفة", "s");
+    } else if(data.type == "tell leave_room") {
+        message(`خرج اللاعب ${data.msg} من الغرفة`, "w");
     }
 
     else if(data.type == "quest") {
@@ -185,6 +194,15 @@ ws.onmessage = (event) => {
                 document.querySelector(last_answer).classList.add("false");
             }
         }
+    }
+
+    else if(data.type == "tell score") {
+        load_score(data.scores);
+    }
+
+    else if(data.type == "win") {
+        if(data.msg == playerId) message("لقد فزت");
+        else message(`فاز اللاعب ${data.msg}`, "e");
     }
 };
 
@@ -222,6 +240,7 @@ let form = homePage.querySelector("form");
 let roomNum = homePage.querySelector(".room-num");
 let newRoomBtn = homePage.querySelector(".new-room");
 let joinRoomBtn = homePage.querySelector(".join-room");
+let leaveRoomBtn = playPage.querySelector(".exit");
 
 form.addEventListener("submit", function(e) {
     e.preventDefault();
@@ -245,6 +264,13 @@ joinRoomBtn.onclick = () => {
             id: roomNum.value
         });
     }
+}
+
+leaveRoomBtn.onclick = () => {
+    send({
+        type: "leave_room",
+        id: activeRoom
+    });
 }
 
 playPage.querySelector(".buttons").onclick = (eo) => {
