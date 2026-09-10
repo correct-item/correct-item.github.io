@@ -8,36 +8,48 @@
     <title>العنصر الصحيح</title>
 </head>
 <body>
-    <div class="exit">
-        <span>خروج</span>
+    <div class="msg">هناك خطأ</div>
+
+    <div class="home-page page">
+        <form>
+            <input class="room-num" type="number" min="1000" max="9999" placeholder="رقم الغرفة">
+            <button type="submit" class="btn new-room">إنشاء</button>
+            <button type="submit" class="btn join-room">دخول</button>
+        </form>
     </div>
 
-    <div class="score">
-        <div class="n1">4</div>
-        <div class="dot"></div>
-        <div class="n2">0</div>
-    </div>
+    <div class="play-page page" style="display: none;">
+        <div class="exit">
+            <span>خروج</span>
+        </div>
 
-    <div class="plate">
-        <div class="img"></div>
-        <div class="img"></div>
-    </div>
+        <div class="score">
+            <div class="n1">0</div>
+            <div class="dot"></div>
+            <div class="n2">0</div>
+        </div>
 
-    <div class="buttons">
-        <div class="btn">
-            <img src="./أيقونات/كرسي.svg" alt="">
+        <div class="plate">
+            <div class="img"></div>
+            <div class="img"></div>
         </div>
-        <div class="btn">
-            <img src="./أيقونات/زجاجة.svg" alt="">
-        </div>
-        <div class="btn">
-            <img src="./أيقونات/كتاب.svg" alt="">
-        </div>
-        <div class="btn">
-            <img src="./أيقونات/قط.svg" alt="">
-        </div>
-        <div class="btn">
-            <img src="./أيقونات/رجل ثلج.svg" alt="">
+
+        <div class="buttons">
+            <div class="btn red sofa">
+                <img src="./أيقونات/كرسي.svg" alt="">
+            </div>
+            <div class="btn green glass">
+                <img src="./أيقونات/زجاجة.svg" alt="">
+            </div>
+            <div class="btn blue book">
+                <img src="./أيقونات/كتاب.svg" alt="">
+            </div>
+            <div class="btn yellow cat">
+                <img src="./أيقونات/قط.svg" alt="">
+            </div>
+            <div class="btn white ice-man">
+                <img src="./أيقونات/رجل ثلج.svg" alt="">
+            </div>
         </div>
     </div>
 

@@ -11,10 +11,73 @@ body {
 
     display: flex;
     justify-content: center;
+}
+
+.play-page, .home-page {
+    width: 100%;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-.score, .exit {
+.home-page {
+    height: 100vh;
+}
+
+.msg {
+    position: fixed;
+    padding: 0 10px;
+    top: -100%;
+    min-width: 192px;
+    height: 50px;
+    border-radius: 30px;
+    border: 0;
+    direction: rtl;
+    color: #fff;
+    background-color: red;
+    font-weight: bold;
+    transition: all 0.2s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ================ home page ================ */
+.home-page input {
+    width: 192px;
+    padding: 10px;
+    border-radius: 15px;
+    text-align: right;
+    direction: rtl;
+    border: 0;
+}
+
+.home-page .btn {
+    width: 100%;
+    height: 50px;
+    border-radius: 15px;
+    border: 0;
+    color: #fff;
+    background-color: #583a72;
+    margin-top: 10px;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-page .btn:hover {
+    background-color: #644183;
+}
+
+.home-page .btn:active {
+    background-color: #764c9b;
+}
+
+/* ================ play page ================ */
+.play-page .score, .exit {
     position: fixed;
     top: calc(50% - 50px);
     width: 100px;
@@ -25,17 +88,17 @@ body {
     z-index: 1000;
 }
 
-.score {
+.play-page .score {
     right: -50px;
     user-select: none;
 }
 
-.exit {
+.play-page .exit {
     left: -50px;
     cursor: pointer;
 }
 
-.score .dot {
+.play-page .score .dot {
     position: fixed;
     top: calc(50% - 4px);
     right: 15px;
@@ -45,7 +108,7 @@ body {
     background-color: #000;
 }
 
-.score .n1, .score .n2 {
+.play-page .score .n1, .score .n2 {
     position: fixed;
     width: 30px;
     height: 30px;
@@ -59,17 +122,17 @@ body {
     align-items: center;
 }
 
-.score .n1 {
+.play-page .score .n1 {
     color: #119cdd;
     top: calc(50% - 40px);
 }
 
-.score .n2 {
+.play-page .score .n2 {
     color: #f7625e;
     bottom: calc(50% - 40px);
 }
 
-.exit span {
+.play-page .exit span {
     position: fixed;
     top: calc(50% - 14px);
     left: -8px;
@@ -79,7 +142,7 @@ body {
     color: #222;
 }
 
-.plate {
+.play-page .plate {
     position: fixed;
     top: calc(50% - 300px);
     width: 400px;
@@ -94,7 +157,7 @@ body {
     align-items: center;
 }
 
-.plate::after {
+.play-page .plate::after {
     content: "";
     position: absolute;
     width: 90%;
@@ -103,20 +166,20 @@ body {
     background-color: #fff;
 }
 
-.plate .img {
+.play-page .plate .img {
     position: relative;
     z-index: 1;
 }
 
-.plate .img:nth-child(1) {
+.play-page .plate .img:nth-child(1) {
     top: -40px;
 }
 
-.plate .img:nth-child(2) {
+.play-page .plate .img:nth-child(2) {
     top: 40px;
 }
 
-.buttons {
+.play-page .buttons {
     position: absolute;
     bottom: 40px;
     max-width: 590px;
@@ -126,7 +189,7 @@ body {
     justify-content: space-around;
 }
 
-.btn {
+.play-page .btn {
     flex-shrink: 0;
     width: 150px;
     height: 100px;
@@ -136,45 +199,65 @@ body {
     gap: 5px;
     margin-top: 20px;
     cursor: pointer;
+    user-select: none;
     
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.btn:hover {
+.play-page .btn.no-click {
+    background-color: #a7a7a7;
+    pointer-events: none;
+}
+
+.play-page .btn.true {
+    border: 1px solid green;
+    background-color: #bfffaf;
+    pointer-events: none;
+}
+
+.play-page .btn.false {
+    border: 1px solid red;
+    background-color: #ffafaf;
+    pointer-events: none;
+}
+
+.play-page .btn:not(.false, .true):hover {
     background-color: #f4efff;
 }
 
-.btn:active {
+.play-page .btn:active {
+    transform: translateY(6px);
+    box-shadow: 0 0 0 #87848d;
     background-color: #ede5ff;
 }
 
-.btn img {
+.play-page .btn img {
     height: 90%;
 }
 
 @media(max-width: 470px) {
-    .plate {
-        top: calc(50% - 200px);
-        width: 300px;
-        height: 300px;
+    .play-page .plate {
+        top: calc(50% - 125px);
+        width: 250px;
+        height: 250px;
     }
 
-    .plate .img {
-        width: 120px;
+    .play-page .plate .img {
+        width: 100px;
     }
 
-    .plate .img:nth-child(1) {
-        top: -20px;
+    .play-page .plate .img:nth-child(1) {
+        top: -40px;
     }
 
-    .plate .img:nth-child(2) {
-        top: 20px;
+    .play-page .plate .img:nth-child(2) {
+        top: 40px;
     }
 
-    .btn {
-        width: 110px;
-        height: 90px;
+    .play-page .btn {
+        width: 100px;
+        height: 50px;
     }
 }
