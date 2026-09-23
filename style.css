@@ -6,7 +6,8 @@
 }
 
 :root {
-    --cb: rgb(56, 56, 56);
+    --bs: 2px; /* border stroke */
+    --cb: rgb(56, 56, 56); /* color of border */
 }
 
 body {
@@ -174,12 +175,10 @@ body {
     position: relative;
     z-index: 1;
     width: 150px;
-    /* filter: drop-shadow(0 0 2px); */
-      filter: 
-    drop-shadow(2px 0 0 var(--cb))
-    drop-shadow(-2px 0 0 var(--cb))
-    drop-shadow(0 2px 0 var(--cb))
-    drop-shadow(0 -2px 0 var(--cb));
+    filter: drop-shadow(var(--bs) 0 0 var(--cb))
+            drop-shadow(calc(-1 * var(--bs)) 0 0 var(--cb))
+            drop-shadow(0 var(--bs) 0 var(--cb))
+            drop-shadow(0 calc(-1 * var(--bs)) 0 var(--cb));
 }
 
 .play-page .plate .img:nth-child(1) {
@@ -246,15 +245,17 @@ body {
 
 .play-page .btn img {
     height: 90%;
-    /* filter: drop-shadow(0 0 2px); */
-      filter: 
-    drop-shadow(2px 0 0 var(--cb))
-    drop-shadow(-2px 0 0 var(--cb))
-    drop-shadow(0 2px 0 var(--cb))
-    drop-shadow(0 -2px 0 var(--cb));
+    filter: drop-shadow(var(--bs) 0 0 var(--cb))
+            drop-shadow(calc(-1 * var(--bs)) 0 0 var(--cb))
+            drop-shadow(0 var(--bs) 0 var(--cb))
+            drop-shadow(0 calc(-1 * var(--bs)) 0 var(--cb));
 }
 
 @media(max-width: 470px) {
+    :root {
+        --bs: 1px; /* border stroke */
+    }
+
     .play-page .plate {
         top: calc(50% - 125px);
         width: 250px;
