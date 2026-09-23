@@ -5,6 +5,10 @@
     margin: 0;
 }
 
+:root {
+    --cb: rgb(56, 56, 56);
+}
+
 body {
     font-family: 'Tajawal', sans-serif;
     background-color: #3f314b;
@@ -169,6 +173,13 @@ body {
 .play-page .plate .img {
     position: relative;
     z-index: 1;
+    width: 150px;
+    /* filter: drop-shadow(0 0 2px); */
+      filter: 
+    drop-shadow(2px 0 0 var(--cb))
+    drop-shadow(-2px 0 0 var(--cb))
+    drop-shadow(0 2px 0 var(--cb))
+    drop-shadow(0 -2px 0 var(--cb));
 }
 
 .play-page .plate .img:nth-child(1) {
@@ -235,6 +246,12 @@ body {
 
 .play-page .btn img {
     height: 90%;
+    /* filter: drop-shadow(0 0 2px); */
+      filter: 
+    drop-shadow(2px 0 0 var(--cb))
+    drop-shadow(-2px 0 0 var(--cb))
+    drop-shadow(0 2px 0 var(--cb))
+    drop-shadow(0 -2px 0 var(--cb));
 }
 
 @media(max-width: 470px) {
