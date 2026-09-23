@@ -218,7 +218,7 @@ body {
 }
 
 .play-page .btn.no-click {
-    background-color: #a7a7a7!important;
+    background-color: #a7a7a7;
     pointer-events: none;
 }
 
@@ -234,11 +234,11 @@ body {
     pointer-events: none;
 }
 
-.play-page .btn:not(.false, .true):hover {
+.play-page .btn:not(.false, .true, .no-click):hover {
     background-color: #f4efff;
 }
 
-.play-page .btn:active {
+.play-page .btn:not(.false, .true, .no-click):active {
     transform: translateY(6px);
     box-shadow: 0 0 0 #87848d;
     background-color: #ede5ff;
